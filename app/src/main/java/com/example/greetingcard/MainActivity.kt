@@ -13,6 +13,7 @@ import androidx.compose.runtime.Composable
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.tooling.preview.Preview
+import androidx.compose.ui.unit.dp
 import com.example.greetingcard.ui.theme.GreetingCardTheme
 
 
@@ -22,23 +23,36 @@ class MainActivity : ComponentActivity() {
         enableEdgeToEdge()
         setContent {
             GreetingCardTheme {
-                Scaffold(modifier = Modifier.fillMaxSize()) { innerPadding ->
+                //Scaffold(modifier = Modifier.fillMaxSize()) {innerPadding -> 24.dp}
                     Greeting(
-                        name = "Nathalie",
-                        modifier = Modifier.padding(innerPadding)
-                    )
+                        name = "Android")
+                        /* Un élément Modifier permet d'améliorer ou de décorer
+                        un composable. Vous pouvez utiliser le modificateur padding,
+                         qui applique un espace autour de l'élément (dans ce cas,
+                         il s'agit d'ajouter de l'espace autour du texte).
+                         Pour ce faire, utilisez la fonction Modifier.padding().
+                         Ex : modifier = Modifier.padding(24.dp)
+                         Ajout des imports obligatoires */
                 }
             }
         }
     }
 // Partie 3 - Créer votre première application Android
-    // Modifier le texte et la couleur de l'arrière-plan
+    /* Modifier le texte et la couleur de l'arrière-plan
     @Composable
     fun Greeting(name: String) {
         Surface(color = Color.Blue) {
             Text(text = "Hi, my name is $name!")
         }
+    }*/
+// Partie 4 - Ajouter une marge intérieure de 24dp
+@Composable
+fun Greeting(name: String) {
+    Surface(color = Color.Magenta) {
+        Text(text = "Hi, my name is $name!", modifier = Modifier.padding(24.dp))
+
     }
+}
 
 
 
@@ -46,7 +60,6 @@ class MainActivity : ComponentActivity() {
     @Composable
     fun GreetingPreview() {
         GreetingCardTheme {
-            Greeting("Nathalie")
+            Greeting("Wall-E")
         }
     }
-}
